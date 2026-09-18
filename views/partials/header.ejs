@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %> | <%= siteData.companyName %></title>
+  <meta name="description" content="<%= typeof metaDescription !== 'undefined' ? metaDescription : 'SSKM Enterprise Solutions & Media Inc. provides SAP S/4HANA transformations, SAP BTP integrations, enterprise architecture, and CIO advisory across Canada and the United States.' %>">
+  <meta name="keywords" content="SAP consultant Canada, SAP Integration Suite consultant, SAP CPI consultant, Enterprise Architect Canada, SAP CPI training, Enterprise Architecture training, Solution Architect coaching, SAP tutorials, technology YouTube channel">
+  <link rel="canonical" href="https://sskmenterprise.com<%= typeof currentPath !== 'undefined' ? currentPath : '' %>">
+  <meta name="robots" content="<%= typeof noIndex !== 'undefined' && noIndex ? 'noindex, follow' : 'index, follow' %>">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="<%= title %> | SSKM Enterprise Solutions">
+  <meta property="og:description" content="<%= typeof ogDescription !== 'undefined' ? ogDescription : (typeof metaDescription !== 'undefined' ? metaDescription : 'Enterprise technology, integration, SAP transformation, and media services across North America.') %>">
+  <meta property="og:url" content="https://sskmenterprise.com<%= typeof currentPath !== 'undefined' ? currentPath : '' %>">
+  <meta property="og:site_name" content="SSKM Enterprise Solutions &amp; Media Inc.">
+  <meta property="og:image" content="https://sskmenterprise.com/images/logo.png">
+  <meta property="og:image:alt" content="SSKM Enterprise Solutions &amp; Media Inc. logo">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="<%= title %> | SSKM Enterprise Solutions">
+  <meta name="twitter:description" content="<%= typeof ogDescription !== 'undefined' ? ogDescription : (typeof metaDescription !== 'undefined' ? metaDescription : 'Enterprise technology, integration, SAP transformation, and media services across North America.') %>">
+  <meta name="twitter:image" content="https://sskmenterprise.com/images/logo.png">
+
+  <% if (siteData.googleAnalyticsId) { %>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=<%= siteData.googleAnalyticsId %>"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '<%= siteData.googleAnalyticsId %>');
+  </script>
+  <% } %>
+
+  <!-- Tailwind CSS CDN & FontAwesome -->
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+  <% if (siteData.adsensePublisherId) { %>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2368026237361749"
+     crossorigin="anonymous"></script>
+  <% } %>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <!-- Organization structured data for search engines -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "SSKM Enterprise Solutions & Media Inc.",
+    "url": "https://sskmenterprise.com",
+    "logo": "https://sskmenterprise.com/images/logo.png",
+    "description": "Enterprise Technology & SAP Transformation Consulting firm based in Mississauga, Ontario, serving clients across Canada and the United States.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "710-365 Prince of Wales Drive",
+      "addressLocality": "Mississauga",
+      "addressRegion": "ON",
+      "postalCode": "L5B 0G6",
+      "addressCountry": "CA"
+    },
+    "areaServed": [
+      { "@type": "AdministrativeArea", "name": "Ontario" },
+      { "@type": "Country", "name": "Canada" },
+      { "@type": "Country", "name": "United States" }
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Enterprise Consulting Services",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SAP S/4HANA Migration & Transformation" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SAP BTP & Hybrid Cloud Integration" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Enterprise Integration, Middleware, APIs & EDI" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Enterprise Architecture & CIO Advisory" } }
+      ]
+    },
+    "sameAs": [
+      "https://www.youtube.com/@SatyaCineStudio",
+      "https://www.youtube.com/@satyafoodtravelvlogs"
+    ]
+  }
+  </script>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans flex flex-col min-h-screen">
+  <header class="border-b border-slate-800 bg-slate-900/90 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      
+     <!-- Brand & Geography Signal -->
+      <a href="/" class="flex items-center space-x-4 text-left py-1">
+        <!-- Enlarged Logo Image -->
+        <img 
+          src="/images/logo.png" 
+          alt="SSKM Enterprise Solutions Logo" 
+          class="h-14 sm:h-16 w-auto max-w-[200px] object-contain rounded drop-shadow"
+          width="240"
+          height="128"
+          fetchpriority="high"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+        />
+        <!-- Fallback Monogram -->
+        <div class="hidden h-14 w-14 rounded-xl bg-gradient-to-tr from-sky-500 to-indigo-600 items-center justify-center font-black text-white text-xl tracking-wider shadow-md">
+          SSKM
+        </div>
+        <div class="border-l border-slate-800 pl-3.5">
+          <span class="block text-sm sm:text-lg font-bold tracking-wide text-slate-100 leading-tight">SSKM Enterprise Solutions &amp; Media Inc.</span>
+          <span class="block text-[10px] sm:text-[11px] font-semibold text-sky-400 tracking-widest uppercase mt-0.5">Consulting • Training • Media | Canada & USA</span>
+        </div>
+      </a>
+
+      <!-- Desktop B2B Navigation -->
+      <nav class="hidden xl:flex items-center space-x-6 text-sm font-semibold tracking-wide">
+        <!-- Solutions Dropdown -->
+        <div class="relative group py-2">
+          <button class="flex items-center gap-1.5 hover:text-sky-400 transition-colors focus:outline-none">
+            <span>Services</span>
+            <i class="fa-solid fa-chevron-down text-[10px] group-hover:rotate-180 transition-transform duration-200"></i>
+          </button>
+          <div class="absolute left-0 top-full hidden group-hover:block w-80 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl p-2 z-50">
+            <div class="px-2.5 pt-2 pb-1 text-[10px] font-bold uppercase tracking-widest text-slate-500">SAP Services</div>
+            <a href="/services/sap-s4hana" class="block p-2.5 rounded-lg hover:bg-slate-800 transition">
+              <span class="block text-xs font-bold text-white">SAP S/4HANA Transformation</span>
+              <span class="block text-[11px] text-slate-400">Migrations, Clean Core & Roadmap</span>
+            </a>
+            <a href="/services/sap-btp" class="block p-2.5 rounded-lg hover:bg-slate-800 transition">
+              <span class="block text-xs font-bold text-white">SAP BTP Consulting</span>
+              <span class="block text-[11px] text-slate-400">Extensions, Cloud Foundations & Apps</span>
+            </a>
+            <a href="/services/sap-integration" class="block p-2.5 rounded-lg hover:bg-slate-800 transition">
+              <span class="block text-xs font-bold text-white">SAP Integration Suite / CPI</span>
+              <span class="block text-[11px] text-slate-400">API Management & Hybrid Middleware</span>
+            </a>
+            <div class="mt-1 border-t border-slate-800 px-2.5 pt-2 pb-1 text-[10px] font-bold uppercase tracking-widest text-slate-500">Architecture & Integration</div>
+            <a href="/services/enterprise-integration" class="block p-2.5 rounded-lg hover:bg-slate-800 transition">
+              <span class="block text-xs font-bold text-white">Enterprise Integration, APIs &amp; EDI</span>
+              <span class="block text-[11px] text-slate-400">Middleware and SAP / non-SAP connectivity</span>
+            </a>
+            <a href="/services/enterprise-architecture" class="block p-2.5 rounded-lg hover:bg-slate-800 transition">
+              <span class="block text-xs font-bold text-white">Enterprise Architecture Advisory</span>
+              <span class="block text-[11px] text-slate-400">Technology roadmaps and technical leadership</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Training & Courses Dropdown -->
+        <div class="relative group py-2">
+          <button class="flex items-center gap-1.5 hover:text-amber-300 transition-colors focus:outline-none">
+            <span>Training &amp; Courses</span>
+            <i class="fa-solid fa-chevron-down text-[10px] group-hover:rotate-180 transition-transform duration-200"></i>
+          </button>
+          <div class="absolute left-0 top-full hidden group-hover:block w-72 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl p-2 z-50">
+            <a href="/training" class="block p-2.5 rounded-lg hover:bg-slate-800 transition">
+              <span class="block text-xs font-bold text-white">Corporate Training</span>
+              <span class="block text-[11px] text-slate-400">Workshops, coaching and team enablement</span>
+            </a>
+            <a href="/courses" class="block p-2.5 rounded-lg hover:bg-slate-800 transition">
+              <span class="block text-xs font-bold text-white">Courses &amp; Bootcamps</span>
+              <span class="block text-[11px] text-slate-400">SAP CPI, Integration Suite and architecture</span>
+            </a>
+            <a href="/careers" class="block p-2.5 rounded-lg hover:bg-slate-800 transition">
+              <span class="block text-xs font-bold text-white">Independent Consultant Network</span>
+              <span class="block text-[11px] text-slate-400">Join our senior delivery community</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Company Dropdown -->
+        <div class="relative group py-2">
+          <button class="flex items-center gap-1.5 hover:text-sky-400 transition-colors focus:outline-none">
+            <span>Company</span>
+            <i class="fa-solid fa-chevron-down text-[10px] group-hover:rotate-180 transition-transform duration-200"></i>
+          </button>
+          <div class="absolute left-0 top-full hidden group-hover:block w-64 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl p-2 z-50">
+            <a href="/about" class="block p-2.5 rounded-lg hover:bg-slate-800 transition">About SSKM</a>
+            <a href="/management" class="block p-2.5 rounded-lg hover:bg-slate-800 transition">Management</a>
+            <a href="/case-studies" class="block p-2.5 rounded-lg hover:bg-slate-800 transition">Case Studies</a>
+            <a href="/industries" class="block p-2.5 rounded-lg hover:bg-slate-800 transition">Industries</a>
+            <a href="/north-america" class="block p-2.5 rounded-lg hover:bg-slate-800 transition">North America</a>
+            <a href="/insights" class="block p-2.5 rounded-lg hover:bg-slate-800 transition">Insights</a>
+          </div>
+        </div>
+
+        <!-- Separated Creative Brand -->
+        <a href="/media-services" class="text-xs px-2.5 py-1 rounded bg-slate-800 border border-slate-700 text-amber-300 hover:border-amber-400 transition">
+          Media
+        </a>
+
+        <!-- High-Intent Direct CTA -->
+        <a href="/contact?intent=architect" class="px-4 py-2 rounded-lg bg-sky-600 hover:bg-sky-500 font-bold text-xs uppercase tracking-wider text-white shadow-lg transition duration-200">
+          Talk to an Architect
+        </a>
+      </nav>
+
+      <!-- Mobile Button -->
+      <button id="mobileMenuBtn" class="xl:hidden text-slate-300 hover:text-white text-xl focus:outline-none">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div id="mobileMenu" class="hidden xl:hidden border-t border-slate-800 px-6 py-4 space-y-3 bg-slate-900 text-sm">
+      <div class="pt-1 text-[10px] font-bold uppercase tracking-widest text-slate-500">Services</div>
+      <a href="/services/sap-s4hana" class="block text-slate-300 hover:text-sky-400">&bull; SAP S/4HANA Transformation</a>
+      <a href="/services/sap-btp" class="block text-slate-300 hover:text-sky-400">&bull; SAP BTP Consulting</a>
+      <a href="/services/sap-integration" class="block text-slate-300 hover:text-sky-400">&bull; SAP Integration Suite / CPI</a>
+      <a href="/services/enterprise-integration" class="block text-emerald-300 hover:text-emerald-200">&bull; Integration, APIs, Middleware &amp; EDI</a>
+      <a href="/services/enterprise-architecture" class="block text-slate-300 hover:text-sky-400">&bull; Enterprise Architecture & Advisory</a>
+      <div class="pt-3 text-[10px] font-bold uppercase tracking-widest text-slate-500">Training &amp; Courses</div>
+      <a href="/training" class="block text-sky-300 hover:text-sky-200 font-medium">&bull; Corporate Training & Coaching</a>
+      <a href="/courses" class="block text-sky-300 hover:text-sky-200 font-medium">&bull; Courses & Bootcamps</a>
+      <a href="/careers" class="block text-amber-300 hover:text-amber-200 font-medium">&bull; Join the Consultant Network</a>
+      <div class="pt-3 text-[10px] font-bold uppercase tracking-widest text-slate-500">Company</div>
+      <a href="/case-studies" class="block text-slate-300 hover:text-sky-400">&bull; Case Studies</a>
+      <a href="/about" class="block text-slate-300 hover:text-sky-400">&bull; About SSKM</a>
+      <a href="/management" class="block text-slate-300 hover:text-sky-400">&bull; Management</a>
+      <a href="/industries" class="block text-slate-300 hover:text-sky-400">&bull; Industries</a>
+      <a href="/north-america" class="block text-slate-300 hover:text-sky-400">&bull; North America Coverage</a>
+      <a href="/insights" class="block text-slate-300 hover:text-sky-400">&bull; Insights</a>
+      <div class="pt-3 text-[10px] font-bold uppercase tracking-widest text-slate-500">Media</div>
+      <a href="/media" class="block text-amber-400 font-medium">&bull; YouTube, Travel & Short Films</a>
+      <a href="/contact?intent=architect" class="inline-block mt-2 px-4 py-2 rounded-lg bg-sky-600 text-white text-xs font-bold uppercase">Talk to an Architect</a>
+    </div>
+  </header>
+  <main class="flex-grow">

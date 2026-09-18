@@ -1,0 +1,50 @@
+<%- include('partials/header') %>
+
+<section class="max-w-7xl mx-auto px-6 py-16">
+  <div class="max-w-3xl mb-12">
+    <span class="text-sky-400 text-xs font-bold uppercase tracking-widest">Enterprise Architecture & IT Delivery</span>
+    <h1 class="text-3xl sm:text-4xl font-extrabold text-white mt-2 mb-4">
+      Scalable Architecture. Predictable Execution.
+    </h1>
+    <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+      SSKM provides seasoned technical architecture and IT governance to modernize legacy foundations, deploy hybrid integrations, and drive mission-critical enterprise transformations.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <% services.forEach(service => { %>
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 hover:border-sky-500/40 transition">
+        <div class="w-10 h-10 rounded-lg bg-sky-950 text-sky-400 flex items-center justify-center text-lg mb-4">
+          <i class="<%= service.icon %>"></i>
+        </div>
+        <h3 class="text-lg font-bold text-white mb-2"><%= service.title %></h3>
+        <p class="text-xs text-slate-400 leading-relaxed mb-4"><%= service.description %></p>
+        
+        <div class="border-t border-slate-800 pt-3">
+          <span class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider block mb-2">Key Competencies</span>
+          <ul class="space-y-1">
+            <% service.deliverables.forEach(item => { %>
+              <li class="text-xs text-slate-300 flex items-center gap-2">
+                <span class="h-1.5 w-1.5 rounded-full bg-sky-400"></span>
+                <%= item %>
+              </li>
+            <% }) %>
+          </ul>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+
+  <!-- Enterprise CTA -->
+  <div class="mt-16 bg-gradient-to-r from-sky-950/40 to-slate-900 border border-sky-800/40 rounded-2xl p-8 flex flex-col md:flex-row justify-between items-center gap-6">
+    <div>
+      <h3 class="text-xl font-bold text-white">Need an Enterprise Advisory or Delivery Lead?</h3>
+      <p class="text-slate-400 text-xs sm:text-sm mt-1">Discuss architecture reviews, migration strategies, or delivery governance.</p>
+    </div>
+    <a href="/contact?division=enterprise" class="px-6 py-3 rounded-lg bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold text-xs uppercase tracking-wider transition whitespace-nowrap">
+      Request Architecture Consultation
+    </a>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

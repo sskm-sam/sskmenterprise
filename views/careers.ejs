@@ -1,0 +1,135 @@
+<%- include('partials/header') %>
+
+<section class="max-w-7xl mx-auto px-6 py-16">
+  <!-- Header -->
+  <div class="max-w-4xl mb-12">
+    <span class="text-sky-400 text-xs font-bold uppercase tracking-widest">Independent Consultant Network</span>
+    <h1 class="text-4xl sm:text-5xl font-black text-white mt-2 mb-4">Build a Trusted Team of Senior Independent Consultants</h1>
+    <p class="text-slate-300 text-base leading-relaxed">
+      We are building a network of highly capable independent consultants who can deliver SAP, integration, middleware, API, data, and digital transformation work with speed and senior-level accountability. If you are an experienced specialist, we want to collaborate on meaningful client engagements.
+    </p>
+  </div>
+
+  <% if (submitted) { %>
+    <div class="mb-8 p-4 rounded-xl border border-emerald-500/50 bg-emerald-950/40 text-emerald-300 text-sm text-center">
+      <i class="fa-solid fa-circle-check mr-2"></i> Your consultant profile has been added to our network database. We will contact you when a suitable engagement becomes available.
+    </div>
+  <% } else if (error) { %>
+    <div class="mb-8 p-4 rounded-xl border border-red-500/50 bg-red-950/40 text-red-300 text-sm text-center">
+      We could not save your profile right now. Please try again or contact us directly.
+    </div>
+  <% } %>
+  <% if (imported || skipped) { %>
+    <div class="mb-8 p-4 rounded-xl border border-sky-500/50 bg-sky-950/40 text-sky-300 text-sm text-center">
+      CSV import complete: <%= imported %> profile(s) added and <%= skipped %> row(s) skipped.
+    </div>
+  <% } else if (importError) { %>
+    <div class="mb-8 p-4 rounded-xl border border-red-500/50 bg-red-950/40 text-red-300 text-sm text-center">
+      CSV import was rejected. Check the access token, file format, and required consent column.
+    </div>
+  <% } %>
+
+  <!-- Capability Focus -->
+  <div class="grid md:grid-cols-3 gap-6 mb-16">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+      <div class="text-sky-400 text-xs font-bold uppercase tracking-wider mb-3">SAP & Integration</div>
+      <h2 class="text-xl font-bold text-white mb-2">SAP Integration Architects</h2>
+      <p class="text-sm text-slate-400">SAP S/4HANA, BTP, middleware, event-driven integration, API-led architecture, and enterprise transformation delivery.</p>
+    </div>
+
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+      <div class="text-amber-400 text-xs font-bold uppercase tracking-wider mb-3">API & Data</div>
+      <h2 class="text-xl font-bold text-white mb-2">Middleware & Platform Experts</h2>
+      <p class="text-sm text-slate-400">API management, enterprise application integration, EDI, B2B messaging, database strategy, and modern data platforms including NoSQL capabilities.</p>
+    </div>
+
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+      <div class="text-emerald-400 text-xs font-bold uppercase tracking-wider mb-3">Delivery Models</div>
+      <h2 class="text-xl font-bold text-white mb-2">Fractional Technical Leadership</h2>
+      <p class="text-sm text-slate-400">Hands-on architects, technical leads, solution designers, and specialist consultants for project delivery, advisory, and augmentation.</p>
+    </div>
+  </div>
+
+  <!-- Job Openings List -->
+  <div class="mb-12">
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="text-2xl font-black text-white">Current Capability Focus</h2>
+      <span class="text-xs uppercase tracking-wider text-slate-400">Independent Consultant Roles</span>
+    </div>
+
+    <div class="space-y-6">
+      <% openings.forEach(job => { %>
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-8 hover:border-slate-700 transition flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div class="space-y-2">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="text-[11px] px-2.5 py-0.5 rounded-full font-semibold <%= job.division === 'Enterprise Solutions' ? 'bg-sky-950 text-sky-400 border border-sky-800' : 'bg-amber-950 text-amber-400 border border-amber-800' %>">
+                <%= job.division %>
+              </span>
+              <span class="text-xs text-slate-500">&bull; <%= job.type %></span>
+              <span class="text-xs text-slate-500">&bull; <%= job.location %></span>
+            </div>
+            <h3 class="text-xl font-bold text-white"><%= job.title %></h3>
+            <p class="text-xs sm:text-sm text-slate-400 max-w-2xl"><%= job.summary %></p>
+          </div>
+
+          <a href="/contact?division=<%= job.division === 'Enterprise Solutions' ? 'enterprise' : 'media' %>" class="px-5 py-2.5 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-semibold text-xs tracking-wider uppercase whitespace-nowrap self-start md:self-center transition">
+            Express Interest &rarr;
+          </a>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+
+  <!-- General Submission Banner -->
+  <div class="bg-gradient-to-r from-slate-900 to-slate-950 border border-slate-800 rounded-2xl p-8 text-center space-y-4">
+    <h3 class="text-xl font-bold text-white">Need a Custom Capability? Let's Discuss.</h3>
+    <p class="text-xs sm:text-sm text-slate-400 max-w-2xl mx-auto">
+      We are open to collaborating with senior independent consultants in SAP integration, middleware, API management, EDI, solution architecture, data platforms, and NoSQL-based systems for projects across North America and beyond.
+    </p>
+    <a href="/contact" class="inline-block px-6 py-3 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-wider transition">
+      Join the Consultant Network
+    </a>
+  </div>
+
+  <div class="mt-12 bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-8">
+    <div class="max-w-2xl mb-6">
+      <span class="text-amber-400 text-xs font-bold uppercase tracking-widest">Consultant Profile</span>
+      <h2 class="text-2xl font-black text-white mt-2">Register Your Independent Expertise</h2>
+      <p class="text-sm text-slate-400 mt-2">Share your capabilities for consideration across future SAP, integration, architecture, API, EDI, data, and NoSQL engagements.</p>
+    </div>
+    <form action="/consultant-application" method="POST" class="grid sm:grid-cols-2 gap-5">
+      <input type="text" name="name" required placeholder="Full name" class="bg-slate-950 border border-slate-700 rounded-lg px-4 py-3 text-sm text-white">
+      <input type="email" name="email" required placeholder="Email address" class="bg-slate-950 border border-slate-700 rounded-lg px-4 py-3 text-sm text-white">
+      <input type="tel" name="phone" placeholder="Phone number" class="bg-slate-950 border border-slate-700 rounded-lg px-4 py-3 text-sm text-white">
+      <input type="text" name="location" required placeholder="Location / time zone" class="bg-slate-950 border border-slate-700 rounded-lg px-4 py-3 text-sm text-white">
+      <input type="text" name="expertise" required placeholder="Primary expertise (e.g. SAP CPI, API, NoSQL)" class="sm:col-span-2 bg-slate-950 border border-slate-700 rounded-lg px-4 py-3 text-sm text-white">
+      <input type="text" name="experience" required placeholder="Years of experience" class="bg-slate-950 border border-slate-700 rounded-lg px-4 py-3 text-sm text-white">
+      <input type="text" name="availability" required placeholder="Availability / engagement preference" class="bg-slate-950 border border-slate-700 rounded-lg px-4 py-3 text-sm text-white">
+      <textarea name="profile" required rows="5" placeholder="Brief profile, certifications, and representative capabilities" class="sm:col-span-2 bg-slate-950 border border-slate-700 rounded-lg px-4 py-3 text-sm text-white"></textarea>
+      <label class="sm:col-span-2 flex items-start gap-3 text-xs text-slate-400">
+        <input type="checkbox" name="consent" value="yes" required class="mt-0.5 accent-amber-500">
+        <span>I consent to SSKM storing and reviewing this profile for independent consultant opportunities. See the <a href="/privacy-policy" class="text-sky-400 hover:text-sky-300">Privacy Policy</a>.</span>
+      </label>
+      <button type="submit" class="sm:col-span-2 px-6 py-3 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-wider transition">Add My Profile</button>
+    </form>
+  </div>
+
+  <% if (importEnabled) { %>
+    <div class="mt-8 border-t border-slate-800 pt-8">
+      <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+        <div>
+          <h2 class="text-lg font-bold text-white">Recurring CSV Import</h2>
+          <p class="text-xs text-slate-400 mt-1">Upload the same structured format whenever you need to add consultant profiles in bulk. Existing email addresses are skipped.</p>
+        </div>
+        <a href="/consultant-template.csv" class="text-xs font-bold uppercase tracking-wider text-sky-400 hover:text-sky-300">Download CSV Template</a>
+      </div>
+      <form action="/admin/consultants/import" method="POST" enctype="multipart/form-data" class="grid sm:grid-cols-[1fr_auto_auto] gap-3 items-end">
+        <label class="text-xs text-slate-400">CSV file<input type="file" name="consultantCsv" accept=".csv,text/csv" required class="block w-full mt-2 text-xs text-slate-300"></label>
+        <label class="text-xs text-slate-400">Import token<input type="password" name="importToken" required class="block w-full mt-2 bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white"></label>
+        <button type="submit" class="px-5 py-2.5 rounded-lg bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs uppercase tracking-wider transition">Import Profiles</button>
+      </form>
+    </div>
+  <% } %>
+</section>
+
+<%- include('partials/footer') %>
